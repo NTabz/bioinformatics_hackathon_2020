@@ -1,1 +1,1 @@
-# bioinformatics_hackathon_2020
+# TeamVarFinders_bioinformatics_hackathon_2020
