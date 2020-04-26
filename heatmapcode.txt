@@ -1,0 +1,25 @@
+# Code for creating the Heatmap 
+
+# Python
+# Take .csv with p-values and make it to .csv for heatmap
+import pandas as pd
+import numpy as np
+
+
+def heatdf(filename1, filename2):
+    data = pd.read_csv(filename1, index_col='Unnamed: 0')
+    df = pd.DataFrame(data)
+    df = df.drop(columns=['mean'])
+    df = (df.apply(np.log10))
+    df = df.abs()
+    df.to_csv(filename2)
+
+# R
+# Create heatmap from given .csv file
+
+setwd(dir = 'Documents/BioHackathon/')
+df = read.csv(file = 'cvdupdated.csv')
+title = '\nHeatmap of FOXO3 Variants associations with CardioVascular related
+        traits, including Positive & Negative Controls'
+heatmap(t(df), Colv = NA, Rowv = NA, scale='row', main=title 
+        xlab = 'Variants', ylab = 'Traits/Diseases')
